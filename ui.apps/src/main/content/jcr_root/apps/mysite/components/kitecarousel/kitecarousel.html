@@ -1,0 +1,21 @@
+<sly data-sly-test="${wcmmode.edit}">
+<div data-emptytext="Kite carousel Component" class="cq-placeholder"></div>
+</sly>
+  
+<sly data-sly-use.productModel="com.mysite.core.core.models.KiteCarousel">
+    <ul class="product-list" data-sly-list.pro="${productModel.products}">
+        <li class="product-item">
+            <img src="${pro.fileReference}" alt="${pro.product}">
+            <div class="product-details">
+                <h2><a href="${pro.link}" class="link" >${pro.title}</a></h2>
+                <p> ${pro.description}</p>
+            </div>
+        </li>
+    </ul>
+</sly>
+
+
+
+
+
+    

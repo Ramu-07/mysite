@@ -1,0 +1,19 @@
+<sly data-sly-test="${wcmmode.edit}">
+<div data-emptytext="Banner Component" class="cq-placeholder"></div>
+
+</sly>
+
+<sly data-sly-use.banner="com.mysite.core.core.models.Banner">
+  <div class="image-container">
+<img src="${banner.fileReference}" alt="Banner Image">
+<h1 class="overlay-text-banner">${banner.text}</h1>
+<div class="overlay-text">
+
+<a href="${banner.link}" class="button">${banner.bannerText}</a>
+<!--<p>Random Text: ${banner.serviceClass}</p>
+<p>Page Title: ${banner.pageTitle}</p>
+<p>Current Page Title: ${CurrentPage.title}</p>-->
+</div>
+</div>
+    </sly>
+

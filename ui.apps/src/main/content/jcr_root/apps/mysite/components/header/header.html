@@ -1,20 +1,96 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Header with Navigation and Logo</title>
+</head>
+<body>
+    <sly data-sly-test="${wcmmode.edit}">
+    <div data-emptytext="Header component" class="cq-placeholder"></div>
+    </sly>
 
-<sly data-sly-test="${wcmmode.edit}">
-<div data-emptytext="Header component" class="cq-placeholder"></div>
-</sly>
+    <sly data-sly-use.header="com.mysite.core.core.models.Header">
+    <header>
+        <img src="${header.fileReference}" alt="${header.product}">
+        <nav>
+            <ul data-sly-list.pro="${header.products}">
+                <li>
+                    <a href="${pro.link}" class="link">${pro.title}</a>
+                </li>
+            </ul>
+            
+        </nav>
+    </header>
+    </sly>
+</body>
+</html>
 
-<sly data-sly-use.header="com.mysite.core.core.models.Header">
-    <ul class="product-lists owl-carousel" data-sly-list.pro="${productModel.products}">
-        <li class="product-items">
-            <img src="${pro.fileReference}" alt="${pro.product}">
-            <div class="product-detailss">
-                <h2><a href="${pro.link}" class="link" >${pro.title}</a></h2>
-                <p> ${pro.description}</p>
-            </div>
-        </li>
-    </ul>
-</sly>
+ <style>
+    /* Style the header */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px;
+        background-color: white;
+        box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
+    }
 
+    /* Style the logo */
+  
+header img {
+    width: 15%;
+    height: auto;
+    border-radius: 50%; /* Add this line */
+    margin-right: 10px; /* Add this line */
+}
+
+    /* Style the list */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Style the list items */
+li {
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+    margin-right: 55px;
+}
+
+/* Style the links */
+li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+/* Change link color on hover */
+li a:hover {
+    color: #007BFF;
+}
+
+
+    /* Style the navigation links */
+    header ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+
+    header ul li {
+        margin-left: 80px;
+    }
+
+    header ul li a {
+        text-decoration: none;
+        color: #333;
+        font-size: 16px;
+    }
+
+    header ul li a:hover {
+        color: #007bff;
+    }
+    </style>

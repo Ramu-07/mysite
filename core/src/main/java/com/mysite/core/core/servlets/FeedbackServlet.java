@@ -32,6 +32,10 @@ public class FeedbackServlet extends SlingAllMethodsServlet {
         String name = req.getParameter("fname");
         String email = req.getParameter("femail");
         String feedback = req.getParameter("ffeedback");
+        String trip = req.getParameter("ftrip");
+        String group = req.getParameter("fgroup");
+        String rating = req.getParameter("frating");
+        String family = req.getParameter("ffamily");
  
         try {
             ResourceResolver resolver=req.getResourceResolver();
@@ -44,6 +48,10 @@ public class FeedbackServlet extends SlingAllMethodsServlet {
         map.put("fullname", name);
         map.put("email", email);
         map.put("feedback", feedback);
+        map.put("rating", rating);
+        map.put("trip", trip);
+        map.put("family", family);
+        map.put("group", group);
        
         resolver.commit();
         resp.setContentType("text/plain");

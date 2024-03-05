@@ -1,22 +1,25 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-<!DOCTYPE html>
-<html>
-<body>
- 
- 
 <div class="feedbackform">
-<h2 >Feedback Form</h2>
+<h2>Feedback Form</h2>
 <label for="name">Name:</label><br>
 <input type="text" id="name" name="name"><br>
 <label for="email">Email:</label><br>
 <input type="email" id="email" name="email"><br>
 <label for="feedback">Feedback:</label><br>
 <input type="text" id="feedback" name="feedback"><br>
+<label for="trip">Trip:</label><br>
+<input type="text" id="trip" name="trip"><br>
+<label for="group">Group Size:</label><br>
+<input type="number" id="group" name="group"><br>
+<label for="rating">Rating (out of 5):</label><br>
+<input type="number" id="rating" name="rating" min="1" max="5"><br>
+<label for="family">Does trip is comfortable for family?</label><br>
+<select id="family" name="family">
+  <option value="yes">Yes</option>
+  <option value="no">No</option>
+</select><br>
 <input type="submit" id="submitfb" value="Submit">
 </div>
- 
-</body>
-</html>
 
 

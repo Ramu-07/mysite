@@ -40,6 +40,18 @@ public class FeedbackModel {
         private String feedback;
 
         @Inject
+        private String trip;
+
+        @Inject
+        private String group;
+
+        @Inject
+        private String rating;
+
+        @Inject
+        private String family;
+
+        @Inject
         private String fullname;
 
         public String getEmail() {
@@ -52,6 +64,21 @@ public class FeedbackModel {
 
         public String getFullname() {
             return fullname;
+        }
+
+        public String getTrip() {
+            return trip;
+        }
+
+        public String getFamily() {
+            return family;
+        }
+        public String getGroup() {
+            return group;
+        }
+
+        public String getRating() {
+            return rating;
         }
     }
 }

@@ -1,0 +1,40 @@
+<div data-sly-use.feedbackModel="com.mysite.core.core.models.FeedbackModel">
+    <ul class="feedback-list">
+        <li class="feedback-item" data-sly-repeat.feedback="${feedbackModel.feedbacks}">
+            <h2 class="feedback-fullname">${feedback.fullname}</h2>
+            <p class="feedback-text">Email: ${feedback.email}</p>
+            <p class="feedback-text">Feedback: ${feedback.feedback}</p>
+        </li>
+    </ul>
+</div>
+
+<style>
+.feedback-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.feedback-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    margin: 10px 0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease-in-out;
+}
+
+.feedback-item:hover {
+    transform: scale(1.05);
+}
+
+.feedback-fullname {
+    color: #333;
+    font-size: 1.5em;
+}
+
+.feedback-text {
+    color: #666;
+}
+
+</style>

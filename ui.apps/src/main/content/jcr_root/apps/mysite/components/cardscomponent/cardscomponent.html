@@ -1,24 +1,61 @@
-<sly data-sly-test="${wcmmode.edit}">
-<div data-emptytext="cards Component" class="cq-placeholder"></div>
 
-</sly>
+    <sly data-sly-test="${wcmmode.edit}">
+    <div data-emptytext="cards Component" class="cq-placeholder"></div>
+    </sly>
 
-<sly data-sly-use.productModel="com.mysite.core.core.models.KiteCarousel">
+    <sly data-sly-use.productModel="com.mysite.core.core.models.KiteCarousel">
     <ul class="product-list" data-sly-list.pro="${productModel.products}">
         <li class="product-item">
-            <img src="${pro.fileReference}" alt="${pro.product}">
-            <div class="product-details">
-                <h2><a href="${pro.link}" class="link" >${pro.title}</a></h2>
-                <p> ${pro.description}</p>
-            </div>
+            <a href="${pro.link}" class="link"> <!-- Link is now wrapping the entire card -->
+                <img src="${pro.fileReference}" alt="${pro.product}">
+                <div class="product-details">
+                    <h2>${pro.title}</h2>
+                    <p>${pro.description}</p>
+                </div>
+            </a>
         </li>
     </ul>
-</sly>
+    </sly>
 
 
- 
+<style>
+.product-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    justify-content: space-around; /* Distribute list items evenly */
+    background-color: #f8f9fa; /* Light grey background */
+}
 
+.product-item {
+    flex: 1; /* Equal width for all cards */
+    padding: 20px;
+    margin: 10px; /* Add some space around each card */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Add some shadow for a card-like effect */
+    background-color: white; /* White background for each card */
+    border-radius: 10px; /* Rounded edges */
+    transition: transform 0.3s ease; /* Smooth transform transition */
+}
 
+.product-item:hover {
+    transform: scale(1.05); /* Slightly scale up cards on hover */
+}
 
+.product-item img {
+    display: block; /* Block display to give the image its own line */
+    margin: 0 auto; /* Center the image horizontally */
+    max-width: 1200px; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+}
 
-    
+.product-details {
+    margin-left: 10px;
+    font-size: 16px; /* Increase font size for readability */
+    color: #333; /* Dark grey color for better contrast */
+}
+
+.link {
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit color from parent elements */
+}
+</style>

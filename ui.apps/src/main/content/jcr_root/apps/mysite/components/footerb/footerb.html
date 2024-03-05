@@ -1,0 +1,41 @@
+<sly data-sly-use.productModel="com.mysite.core.core.models.KiteCarousel">
+    <ul class="footer-list" data-sly-list.pro="${productModel.products}">
+        <li class="footer-item">
+                <h2><a href="${pro.link}" class="footer-link">${pro.title}</a></h2>
+        </li>
+    </ul>
+</sly>
+</body>
+</html>
+
+<style>
+.footer-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-item {
+    font: 100 10px/1.5 Helvetica, Verdana, sans-serif;
+    border-bottom: none;
+    text-align: center;
+}
+
+.footer-item:last-child {
+    border: none;
+}
+
+.footer-link {
+    text-decoration: none;
+    color: #000;
+    display: block;
+    width: 200px;
+    transition: font-size 0.3s ease, background-color 0.3s ease;
+}
+
+.footer-link:hover {
+    font-size: 20px;
+    background: #f6f6f6;
+    transform: scale(1.05);
+}
+</style>

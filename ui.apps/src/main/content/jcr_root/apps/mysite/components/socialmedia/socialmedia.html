@@ -1,38 +1,63 @@
- <sly data-sly-use.productModel="com.mysite.core.core.models.KiteCarousel">
-    <ul class="socialmedia-list socialmedia-section" data-sly-list.pro="${productModel.products}">
-        <li class="socialmedia-item">
-            <a href="${pro.link}" class="link">
-                <img src="${pro.fileReference}" alt="${pro.product}">
+
+<sly data-sly-use.socialMedia="com.mysite.core.core.models.SocialMedia">
+    <h1 class="title-class">${socialMedia.title}</h1>
+    <ul class="img-list">
+        <li data-sly-repeat.product="${socialMedia.products}" class="img-item">
+            <a href="${product.link}" class="img-link">
+                <img src="${product.fileReference}" alt="${product.title}" class="img-image">
             </a>
-            <div class="socialmedia-details">
-                <h2>${pro.product}</h2>
-            </div>
         </li>
     </ul>
-    </sly>
+</sly>
 
-   <style>
-    /* Social media section CSS */
-    .socialmedia-section .socialmedia-item {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: background-color .2s;
-        border: none;
-    }
+<style>
+.title-class {
+    font: 100 16px Helvetica, Verdana, sans-serif;
+    text-align: center;
+  margin-right:160px;
+}
 
-    .socialmedia-section .socialmedia-item img {
-        width: 25px;
-        height: 25px;
-        border-radius: 15px;
-        transition: transform .2s;
-    }
+.img-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    display: flex;
+   
+    align-items: center;
+}
 
-    .socialmedia-section .socialmedia-item:hover {
-        background-color: #f0f0f0;
-    }
+.img-item {
+    font: 100 10px/1.5 Helvetica, Verdana, sans-serif;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    padding:10px;
+   
+    
+}
 
-    .socialmedia-section .socialmedia-item img:hover {
-        transform: scale(1.2);
-    }
-    </style> 
+.img-item:last-child {
+    border: none;
+}
+
+.img-link {
+    text-decoration: none;
+    width: 30px;
+    height: 30px;
+    transition: font-size 0.5s ease;
+}
+
+.img-link:hover {
+    font-size: 20px;
+   background-color:#d3d3d3;
+    transform: scale(1.5);
+    
+}
+
+.img-image {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+</style>

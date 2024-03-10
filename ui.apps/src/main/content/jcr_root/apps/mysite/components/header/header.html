@@ -2,6 +2,9 @@
     <sly data-sly-test="${wcmmode.edit}">
     <div data-emptytext="Header component" class="cq-placeholder"></div>
     </sly>
+    
+    
+    
 
     <sly data-sly-use.header="com.mysite.core.core.models.Header">
     <header class="custom-header">
@@ -20,65 +23,60 @@
 
 
 <style>
-   /* Style the header */
+/* Style the header */
 .custom-header {
     display: flex;
-    justify-content: space-between;
+
     align-items: center;
-    padding: 0px;
+    padding: 0;
     background-color: white;
 }
 
 /* Style the logo */
 .custom-logo {
-    width: 10%;
+    width: 12%;
     height: auto;
-    border-radius: 50%;
-   
+    border-radius: 40%;
+    margin-left: 50px;
+     
 }
 
 /* Style the list */
 .custom-list {
     list-style: none;
     padding: 0;
+}
+
+.custom-list-item {
+    
+    margin-right: 75px;
+    font-size: 10px;
+    font-family: Arial, sans-serif;
+}
+
+.custom-link {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
    
 }
 
-/* Style the list items */
-.custom-list-item {
-    padding: 5px 0;
-    margin-right: 55px;
-  
-}
 
-/* Style the links */
-.custom-link {
-    text-decoration: none;
-    color: #333;
-    font-size: 18px;
-}
 
-/* Style the navigation links */
+
 .custom-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
     display: flex;
+    list-style: none;
+    margin-left:90px;
 }
 
-.custom-nav ul li {
-    margin-left: 150px;
+.custom-list-item:hover {
+   background-color:#d3d3d3;; /* Change as per your preference */
+    transform: scale(1.1); /* Zoom in effect */
+     border-radius: 5px; /* Rounded borders */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    
 }
 
-.custom-nav ul li a {
-    text-decoration: none;
-    color: #333;
-    font-size: 16px;
-}
-
-.custom-link:hover {
-    color: #007BFF;
-    font-size: 20px; /* Adjust this value */
-}
 
 </style>

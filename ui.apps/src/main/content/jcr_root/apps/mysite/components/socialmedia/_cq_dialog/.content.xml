@@ -57,6 +57,12 @@
                             </items>
                         </field>
                     </products>
+                    <title
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldDescription="Enter the Title"
+                        fieldLabel="Title"
+                        name="./title"/>
                 </items>
             </column>
         </items>

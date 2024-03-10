@@ -51,6 +51,10 @@ public class BannerImpl implements Banner {
     @Via("resource")
     String text;
 
+    @Inject
+    @Via("resource")
+    String description;
+
     @Override
     public String getFileReference() {
         return fileReference;
@@ -69,6 +73,11 @@ public class BannerImpl implements Banner {
     @Override
     public String getText() {
         return text;
+    }
+
+    @Override
+    public String getDescription() {
+        return description;
     }
 
 }

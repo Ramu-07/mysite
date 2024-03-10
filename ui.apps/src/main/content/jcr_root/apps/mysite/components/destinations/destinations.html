@@ -1,0 +1,70 @@
+
+    <sly data-sly-test="${wcmmode.edit}">
+    <div data-emptytext="Destination Component" class="cq-placeholder"></div>
+    </sly>
+
+    <sly data-sly-use.productModel="com.mysite.core.core.models.KiteCarousel">
+    <ul class="place-list" data-sly-list.pro="${productModel.products}">
+        <li class="place-item">
+            <a href="${pro.link}" class="place-link"> <!-- Link is now wrapping the entire card -->
+                <img src="${pro.fileReference}" alt="${pro.product}">
+                <div class="place-details">
+                    <h2>${pro.title}</h2>
+                    <p>${pro.description}</p>
+                </div>
+            </a>
+        </li>
+    </ul>
+    </sly>
+
+
+<style>
+.place-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    justify-content: space-between;
+    background-color: #ffffff; /* White background for the card container */
+}
+
+.place-item {
+    flex-basis: calc(33.33% - 20px);
+    padding: 20px;
+    margin: 10px;
+    background-color: #f5f5f5; /* White smoke background for the card */
+    border-radius: 10px; /* Rounded borders */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.place-item:hover {
+    transform: scale(1.05);
+    background-color: #d3d3d3; /* Green smoke color on hover */
+    color: white; /* Text color on hover */
+}
+
+.place-item img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+.place-details {
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.place-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.place-link:hover {
+    color: white;
+}
+
+
+</style>

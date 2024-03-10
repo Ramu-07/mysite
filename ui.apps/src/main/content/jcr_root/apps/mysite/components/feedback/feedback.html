@@ -6,20 +6,72 @@
 <input type="text" id="name" name="name"><br>
 <label for="email">Email:</label><br>
 <input type="email" id="email" name="email"><br>
-<label for="feedback">Feedback:</label><br>
-<input type="text" id="feedback" name="feedback"><br>
+
 <label for="trip">Trip:</label><br>
 <input type="text" id="trip" name="trip"><br>
 <label for="group">Group Size:</label><br>
 <input type="number" id="group" name="group"><br>
-<label for="rating">Rating (out of 5):</label><br>
-<input type="number" id="rating" name="rating" min="1" max="5"><br>
+
 <label for="family">Does trip is comfortable for family?</label><br>
 <select id="family" name="family">
   <option value="yes">Yes</option>
   <option value="no">No</option>
 </select><br>
+<label for="feedback">Feedback:</label><br>
+<input type="text" id="feedback" name="feedback"><br>
+<label for="rating">Rating (out of 5):</label><br>
+<input type="number" id="rating" name="rating" min="1" max="5"><br>
 <input type="submit" id="submitfb" value="Submit">
 </div>
+
+<style>
+.feedbackform {
+    width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #80809;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+     margin-bottom: 15px;
+      margin-top: 15px;
+}
+
+.feedbackform h2 {
+    text-align: center;
+    color: #999;
+}
+
+.feedbackform label {
+    display: block;
+    margin-bottom: 5px;
+    color: #888;
+}
+
+.feedbackform input[type="text"],
+.feedbackform input[type="email"],
+.feedbackform input[type="number"],
+.feedbackform select {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.feedbackform input[type="submit"] {
+    width: 95%;
+    padding: 10px;
+    border: none;
+    background-color: #00876F;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.feedbackform input[type="submit"]:hover {
+    background-color: #005973;
+}
+</style>
+
 
 

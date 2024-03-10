@@ -1,0 +1,38 @@
+
+
+<div class="buttoni">
+    
+        <sly data-sly-use.buttoni="com.mysite.core.core.models.KiteCarousel" data-sly-list.butt="${buttoni.products}">
+           
+               
+        <h2><a href="${butt.link}" class="link-buttoni">${butt.title}</a></h2>
+                    
+             
+        </sly>
+    </div>
+    
+    <style>
+    
+
+
+.link-buttoni {
+    display: inline-block;
+    font-size: 1em;
+    color: #fff;
+    background-color: #3498db;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin-left:35%;
+}
+
+.link-buttoni:hover {
+    background-color: #2980b9;
+}
+
+
+    </style>
+
+
+

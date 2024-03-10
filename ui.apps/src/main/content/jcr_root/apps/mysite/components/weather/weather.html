@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-</head>
-<body>
- 
-<div id="footer">ADOBE Stock Price: </div>
-
+<sly data-sly-use.weather="com.mysite.core.core.services.WeatherService">
+<div data-sly-test="${weather.weatherData}">
+        ${weather.weatherData}
+</div>
+</sly>

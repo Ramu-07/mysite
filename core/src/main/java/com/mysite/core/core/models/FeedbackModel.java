@@ -11,6 +11,7 @@ import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Collections;
 
 @Model(adaptables = Resource.class)
 public class FeedbackModel {
@@ -18,20 +19,59 @@ public class FeedbackModel {
     @SlingObject
     private ResourceResolver resourceResolver;
 
+
+   
+    
+
     public List<Feedback> getFeedbacks() {
-        List<Feedback> feedbacks = new ArrayList<>();
+        List<Feedback> feedbacks = new ArrayList<>(); 
         Resource resource = resourceResolver.getResource("/apps/mysite/components/feedback/formvalues");
         if (resource != null) {
             Iterator<Resource> children = resource.listChildren();
             while (children.hasNext()) {
                 feedbacks.add(children.next().adaptTo(Feedback.class));
+           
+
+           
+            }
+
+      //      while(children.hasNext()){
+       //         feedbacks.add(children.next().adaptTo(Feedback.class));
+       // }
+
+
+        }
+        Collections.reverse(feedbacks);
+        return feedbacks;
+
+        
+    }
+
+    public double getAverageRating() {
+        List<Feedback> feedbacks = getFeedbacks();
+        if (feedbacks.isEmpty()) {
+            return 0;
+        }
+    
+        double sum = 0;
+        for (Feedback feedback : feedbacks) {
+            try {
+                sum += Double.parseDouble(feedback.getRating());
+            } catch (NumberFormatException e) {
+                // Handle the case where the rating is not a number
             }
         }
-        return feedbacks;
+    
+        
+        return sum / feedbacks.size();
+
+
     }
 
     @Model(adaptables = Resource.class)
     public static class Feedback {
+
+
 
         @Inject
         private String email;
@@ -80,5 +120,7 @@ public class FeedbackModel {
         public String getRating() {
             return rating;
         }
+
+     
     }
 }

@@ -1,45 +1,90 @@
 <div data-sly-use.feedbackModel="com.mysite.core.core.models.FeedbackModel">
     <ul class="feedback-list">
         <li class="feedback-item" data-sly-repeat.feedback="${feedbackModel.feedbacks}">
+            <div class="pin"></div>
             <h2 class="feedback-fullname">${feedback.fullname}</h2>
             <p class="feedback-text">Email: ${feedback.email}</p>
-            <p class="feedback-text">Feedback: ${feedback.feedback}</p>
             <p class="feedback-text">Trip: ${feedback.trip}</p>
             <p class="feedback-text">Group Size: ${feedback.group}</p>
             <p class="feedback-text">Rating: ${feedback.rating}</p>
             <p class="feedback-text">Comfortable for Family: ${feedback.family}</p>
+            <p class="feedback-text">Feedback: ${feedback.feedback}</p>
         </li>
     </ul>
+    <p class="average-rating">Overall Rating :${feedbackModel.averageRating}</p>
 </div>
-
 
 <style>
 .feedback-list {
     list-style-type: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-wrap: wrap; /* Wrap items to the next row */
+    justify-content: space-around; /* Center items on the page */
+    background: white; /* Light grey background */
 }
 
 .feedback-item {
-    background-color: #f9f9f9;
+    position: relative; /* Relative positioning for the pin */
     margin: 10px;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease-in-out;
+    flex-basis: calc(30% - 20px); /* Set width for three items per row */
+    border: 1px solid #ccc; /* Add border */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
 }
 
 .feedback-item:hover {
     transform: scale(1.03);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .feedback-fullname {
     color: #333;
-    font-size: 1.2em;
+    font-size: 1.5em;
     margin-bottom: 10px;
+    text-transform: uppercase;
 }
 
 .feedback-text {
     color: #666;
+    line-height: 1.6;
+}
+
+.average-rating {
+    font-size: 1.2em;
+    color: #333;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Style the pin */
+.pin {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    height: 20px;
+    width: 20px;
+    margin-left: -10px;
+    background: #ff4b5a;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 </style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    var colors = ["#ffe0e0", "#e0ffe0", "#e0e0ff", "#ffffe0", "#e0ffff", "#ffe0ff"]; // Array of colors
+    $(".feedback-item").each(function(index){
+        var rotateDegree = Math.random() * (10 - (-10)) + (-10); // Random rotation between -10 and 10 degrees
+        var translateX = Math.random() * (10 - (-10)) + (-10); // Random horizontal shift between -10 and 10 pixels
+        var translateY = Math.random() * (10 - (-10)) + (-10); // Random vertical shift between -10 and 10 pixels
+        var color = colors[Math.floor(Math.random() * colors.length)]; // Random color from the array
+        $(this).css({"transform": "rotate(" + rotateDegree + "deg) translate(" + translateX + "px, " + translateY + "px)", "background-color": color});
+    });
+});
+</script>

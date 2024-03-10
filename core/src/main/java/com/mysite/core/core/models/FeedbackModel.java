@@ -24,28 +24,20 @@ public class FeedbackModel {
     
 
     public List<Feedback> getFeedbacks() {
-        List<Feedback> feedbacks = new ArrayList<>(); 
+        List<Feedback> feedbacks = new ArrayList<>();
         Resource resource = resourceResolver.getResource("/apps/mysite/components/feedback/formvalues");
         if (resource != null) {
             Iterator<Resource> children = resource.listChildren();
             while (children.hasNext()) {
                 feedbacks.add(children.next().adaptTo(Feedback.class));
-           
-
-           
             }
-
-      //      while(children.hasNext()){
-       //         feedbacks.add(children.next().adaptTo(Feedback.class));
-       // }
-
-
         }
-        Collections.reverse(feedbacks);
-        return feedbacks;
-
-        
+        // Return only the latest 12 feedbacks
+        int start = Math.max(feedbacks.size() - 12, 0);
+        return feedbacks.subList(start, feedbacks.size());
     }
+    
+    
 
     public double getAverageRating() {
         List<Feedback> feedbacks = getFeedbacks();

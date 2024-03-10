@@ -1,6 +1,9 @@
 <div data-sly-use.feedbackModel="com.mysite.core.core.models.FeedbackModel">
     <ul class="feedback-list">
-        <li class="feedback-item" data-sly-repeat.feedback="${feedbackModel.feedbacks}">
+      <li class="feedback-item" data-sly-repeat.feedback="${feedbackModel.feedbacks}"> 
+        
+       
+        
             <div class="pin"></div>
             <h2 class="feedback-fullname">${feedback.fullname}</h2>
             <p class="feedback-text">Email: ${feedback.email}</p>
@@ -12,6 +15,7 @@
         </li>
     </ul>
     <p class="average-rating">Overall Rating :${feedbackModel.averageRating}</p>
+    
 </div>
 
 <style>
@@ -54,13 +58,6 @@
     line-height: 1.6;
 }
 
-.average-rating {
-    font-size: 1.2em;
-    color: #333;
-    font-weight: bold;
-    margin-top: 20px;
-}
-
 /* Style the pin */
 .pin {
     position: absolute;
@@ -73,6 +70,14 @@
     border-radius: 50%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
+
+.average-rating {
+    font-size: 20px;
+    color: blue;
+}
+
+
+
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

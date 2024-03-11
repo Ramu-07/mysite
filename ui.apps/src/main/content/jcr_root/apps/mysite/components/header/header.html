@@ -1,96 +1,82 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Header with Navigation and Logo</title>
-</head>
-<body>
+
     <sly data-sly-test="${wcmmode.edit}">
     <div data-emptytext="Header component" class="cq-placeholder"></div>
     </sly>
+    
+    
+    
 
     <sly data-sly-use.header="com.mysite.core.core.models.Header">
-    <header>
-        <img src="${header.fileReference}" alt="${header.product}">
-        <nav>
-            <ul data-sly-list.pro="${header.products}">
-                <li>
-                    <a href="${pro.link}" class="link">${pro.title}</a>
+    <header class="custom-header">
+        <img src="${header.fileReference}" alt="${header.product}" class="custom-logo">
+        <nav class="custom-nav">
+            <ul data-sly-list.pro="${header.products}" class="custom-list">
+                <li class="custom-list-item">
+                    <a href="${pro.link}" class="custom-link">${pro.title}</a>
                 </li>
             </ul>
-            
         </nav>
+        
+      
     </header>
     </sly>
-</body>
-</html>
 
- <style>
-    /* Style the header */
-    header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0px;
-        background-color: white;
-        box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
-    }
 
-    /* Style the logo */
-  
-header img {
-    width: 15%;
-    height: auto;
-    border-radius: 50%; /* Add this line */
-    margin-right: 10px; /* Add this line */
+<style>
+/* Style the header */
+.custom-header {
+    display: flex;
+
+    align-items: center;
+    padding: 0;
+    background-color: white;
 }
 
-    /* Style the list */
-ul {
+/* Style the logo */
+.custom-logo {
+    width: 12%;
+    height: auto;
+    border-radius: 40%;
+    margin-left: 50px;
+     
+}
+
+/* Style the list */
+.custom-list {
     list-style: none;
     padding: 0;
-    margin: 0;
 }
 
-/* Style the list items */
-li {
-    padding: 5px 0;
-    border-bottom: 1px solid #ddd;
-    margin-right: 55px;
+.custom-list-item {
+    
+    margin-right: 75px;
+    font-size: 10px;
+    font-family: Arial, sans-serif;
 }
 
-/* Style the links */
-li a {
+.custom-link {
     text-decoration: none;
-    color: #333;
-    font-size: 18px;
-    transition: color 0.3s ease;
-}
-
-/* Change link color on hover */
-li a:hover {
-    color: #007BFF;
+    color: black;
+    font-size: 20px;
+   
 }
 
 
-    /* Style the navigation links */
-    header ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-    }
 
-    header ul li {
-        margin-left: 80px;
-    }
 
-    header ul li a {
-        text-decoration: none;
-        color: #333;
-        font-size: 16px;
-    }
+.custom-nav ul {
+    display: flex;
+    list-style: none;
+    margin-left:90px;
+}
 
-    header ul li a:hover {
-        color: #007bff;
-    }
-    </style>
+.custom-list-item:hover {
+   background-color:#d3d3d3;; /* Change as per your preference */
+    transform: scale(1.1); /* Zoom in effect */
+     border-radius: 5px; /* Rounded borders */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    
+}
+
+
+</style>

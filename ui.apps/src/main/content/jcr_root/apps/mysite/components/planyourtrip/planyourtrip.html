@@ -1,0 +1,73 @@
+<div>
+  
+    <form id="tripForm">
+    
+      <h2>Planning Your Trip ?</h2>
+      <p>let us take care of it , please fill the form and be relaxed</p>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+
+        <label for="phone">Your number:</label><br>
+        <input type="tel" id="phone" name="phone" placeholder="Your Phone Number"><br>
+
+        <label for="destination">Destination:</label><br>
+        <input type="text" id="destination" name="destination"><br>
+
+        <label for="startdate">Start Date:</label><br>
+        <input type="date" id="startdate" name="startdate"><br>
+
+        <label for="enddate">End Date:</label><br>
+        <input type="date" id="enddate" name="enddate"><br>
+
+        <label for="groupsize">Group Size:</label><br>
+        <input type="number" id="groupsize" name="groupsize" min="1"><br>
+
+        <label>Trip With:</label><br>
+        <input type="radio" id="family" name="tripwith" value="family">
+        <label for="family">Family</label><br>
+        <input type="radio" id="friends" name="tripwith" value="friends">
+        <label for="friends">Friends</label><br>
+
+        <input type="submit" id="submit" value="Submit"><br>
+    </form>
+</div>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+}
+
+form {
+    width: 85%;
+    margin: 0 auto;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 20px;
+}
+
+input[type="text"], input[type="tel"], input[type="date"], input[type="number"] {
+    width: 60%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+</style>
+
+

@@ -14,12 +14,11 @@ import org.slf4j.LoggerFactory;
 import com.mysite.core.core.services.WeatherService;
  
 @Model(adaptables = { Resource.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
-public class HeaderImpl {
+public class SocialMediaImpl {
  
     
 
-    @Inject
-    private String title;
+   
 
 
     
@@ -29,14 +28,19 @@ public class HeaderImpl {
 
 
 
-    public String getTitle() {
-        return title;
-    }
+    
 
 
 
     public String getLink() {
         return link;
+    }
+
+    @Inject
+    private String fileReference;
+
+    public String getFileReference() {
+        return fileReference;
     }
    
 }

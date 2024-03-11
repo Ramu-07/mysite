@@ -20,21 +20,23 @@ import org.slf4j.LoggerFactory;
 import com.mysite.core.core.services.WeatherService;
 
 @Model(adaptables = { Resource.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
-public class Header {
+public class SocialMedia{
 
     private static final Logger LOG = LoggerFactory.getLogger(Header.class);
 
+    
+@Inject
+private String title;
+
+public String getTitle(){
+    return title;
+}
+
+
     @Inject
-    private String fileReference;
+    private List<SocialMediaImpl> products;
 
-    public String getFileReference() {
-        return fileReference;
-    }
-
-    @Inject
-    private List<HeaderImpl> products;
-
-    public List<HeaderImpl> getProducts() {
+    public List<SocialMediaImpl> getProducts() {
         return new ArrayList<>(products);
     }
 
@@ -45,4 +47,7 @@ public class Header {
         return weatherService.getWeatherData();
     }
 
+    //ramu
+
 }
+

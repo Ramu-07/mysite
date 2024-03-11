@@ -14,4 +14,6 @@ public interface Banner {
 
     String getPageTitle();
 
+    String getDescription();
+
 }

@@ -1,24 +1,80 @@
-<sly data-sly-test="${wcmmode.edit}">
-<div data-emptytext="cards Component" class="cq-placeholder"></div>
 
-</sly>
+    <sly data-sly-test="${wcmmode.edit}">
+    <div data-emptytext="cards Component" class="cq-placeholder"></div>
+    </sly>
 
-<sly data-sly-use.productModel="com.mysite.core.core.models.KiteCarousel">
+    <sly data-sly-use.productModel="com.mysite.core.core.models.KiteCarousel">
+    
     <ul class="product-list" data-sly-list.pro="${productModel.products}">
         <li class="product-item">
-            <img src="${pro.fileReference}" alt="${pro.product}">
-            <div class="product-details">
-                <h2><a href="${pro.link}" class="link" >${pro.title}</a></h2>
-                <p> ${pro.description}</p>
-            </div>
+            <a href="${pro.link}" class="link"> <!-- Link is now wrapping the entire card -->
+                <img src="${pro.fileReference}" alt="${pro.product}">
+                <div class="product-details">
+                    <h2>${pro.title}</h2>
+                    <p>${pro.description}</p>
+                </div>
+            </a>
         </li>
     </ul>
-</sly>
-
-
- 
-
-
-
-
     
+    </sly>
+
+
+
+<style>
+<style>
+.product-list {
+    display: flex; /* Use Flexbox */
+    flex-direction: coloumn; /* Align items in a row */
+    flex-wrap: nowrap; /* Prevent wrapping to the next line */
+    justify-content: space-between; /* Distribute cards evenly */
+    align-items: stretch; /* Stretch items to fill the container */
+    list-style: none;
+    padding: 0;
+    background-color: #f4f4f4; /* Light grey background */
+}
+
+.product-list {
+    display: flex; /* Use Flexbox */
+    justify-content: space-between; /* Distribute cards evenly */
+    list-style: none;
+    padding: 0;
+    background-color: #f4f4f4; /* Light grey background */
+}
+
+.product-item {
+    flex: 1; /* Allow cards to grow and shrink as needed */
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: white;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add shadow transition */
+}
+
+
+
+.product-item img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%; /* Adjust as needed */
+    height: auto;
+    border-radius: 10px; /* Rounded edges for images */
+}
+
+.product-details {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+    text-align: center; /* Center the text */
+}
+
+.link {
+    text-decoration: none;
+    color: inherit;
+    display: block; /* Block display to make the entire card clickable */
+    height: 100%; /* Full height to make the entire card clickable */
+}
+</style>
+
+</style>

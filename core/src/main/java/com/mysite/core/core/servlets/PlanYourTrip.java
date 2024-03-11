@@ -20,42 +20,44 @@ import java.util.Map;
 @Component(service=Servlet.class,
     property={
         "sling.servlet.methods=POST",
-        "sling.servlet.paths=/bin/feedback"
+        "sling.servlet.paths=/bin/planyourtrip"
     })
-public class FeedbackServlet extends SlingAllMethodsServlet {
+public class PlanYourTrip extends SlingAllMethodsServlet {
  
    
  
     @Override
     protected void doPost(final SlingHttpServletRequest req,
                           final SlingHttpServletResponse resp) throws ServletException, IOException {
-        String name = req.getParameter("fname");
-        String email = req.getParameter("femail");
-        String feedback = req.getParameter("ffeedback");
-        String trip = req.getParameter("ftrip");
-        String group = req.getParameter("fgroup");
-        String rating = req.getParameter("frating");
-        String family = req.getParameter("ffamily");
+                            String name = req.getParameter("pname");
+                            String phone = req.getParameter("phone");
+        String destination = req.getParameter("destination");
+        String startdate = req.getParameter("startdate");
+        String enddate = req.getParameter("enddate");
+        String groupsize = req.getParameter("groupsize");
+        String tripwith = req.getParameter("tripwith");
+       
  
         try {
             ResourceResolver resolver=req.getResourceResolver();
-            Resource resource =resolver.getResource("/apps/mysite/components/feedback/formvalues");
+            Resource resource =resolver.getResource("/apps/mysite/components/planyourtrip/customerdetails");
             Node node = resource.adaptTo(Node.class);
             Node nameNode = node.addNode(name);
          Resource noderesource = resolver.getResource(nameNode.getPath());
    
         ModifiableValueMap map = noderesource.adaptTo(ModifiableValueMap.class);
         map.put("fullname", name);
-        map.put("email", email);
-        map.put("feedback", feedback);
-        map.put("rating", rating);
-        map.put("trip", trip);
-        map.put("family", family);
-        map.put("group", group);
+        map.put("phone no", phone);
+        map.put("destination", destination);
+        map.put("startdate", startdate);
+        map.put("enddate", enddate);
+        map.put("groupsize", groupsize);
+        map.put("tripwith", tripwith);
+        
        
         resolver.commit();
         resp.setContentType("text/plain");
-                    resp.getWriter().write("Feedback received and stored in the repository.");
+                    resp.getWriter().write("Details received, Thank you !");
                     resp.getWriter().flush();
    
 } catch (Exception e) {

@@ -39,7 +39,7 @@ public class ProductModel {
     }
 
     public String getLink() {
-        return link;
+        return link+".html";
     }
 
     @Inject

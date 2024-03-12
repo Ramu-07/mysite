@@ -67,7 +67,7 @@ public class BannerImpl implements Banner {
 
     @Override
     public String getLink() {
-        return link;
+        return link+".html";
     }
 
     @Override

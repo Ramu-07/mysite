@@ -36,7 +36,7 @@ public class HeaderImpl {
 
 
     public String getLink() {
-        return link;
+        return link+".html";
     }
    
 }
